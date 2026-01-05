@@ -25,12 +25,11 @@ def predict_data():
         ffmc = float(request.form['FFMC'])
         dmc = float(request.form['DMC'])
         isi = float(request.form['ISI'])
-        classes = int(request.form['Classes'])
         region = int(request.form['Region'])
 
 
         new_data_scaled = Standard_scaler.transform(
-        [[temperature, humidity, wind, rain, ffmc, dmc, isi, classes, region]]
+        [[temperature, humidity, wind, rain, ffmc, dmc, isi, region]]
     )
         
         result=ridge_model.predict(new_data_scaled)
